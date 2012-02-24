@@ -1,0 +1,80 @@
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0px;
+  background: -o-linear-gradient(top, #bbeedd , white 20%);
+}
+table {
+  table-layout: fixed;
+  position: absolute;
+  width: 76%;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -38%;
+  margin-top: -100px;
+}
+img {
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%; 
+  border-radius: 10px;
+}
+img:not([alt]) {
+  width: 80%; 
+}
+td div {
+	margin: 0;
+	padding: 0;
+}
+td {
+  text-align: center;
+  font-family: Verdana;
+  
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 140px) { 
+	div {
+		font-size: 6px;
+		line-height: 10px;
+	}
+}
+
+@media screen and (min-width: 140px) and (max-width: 180px) { 
+	div {
+		font-size: 8px;
+		line-height: 15px;
+	}
+}
+@media screen and (min-width: 180px) and (max-width: 230px) { 
+	div {
+		font-size: 11px;
+		line-height: 17px;
+	}
+}
+@media screen and (min-width: 230px) and (max-width: 260px) { 
+	div {
+		font-size: 13px;
+		line-height: 23px;
+	}
+}
+@media screen and (min-width: 260px) and (max-width: 320px) { 
+	div {
+		font-size: 16px;
+		line-height: 28px;
+	}
+}
+@media screen and (min-width: 320px) and (max-width: 400px)  { 
+	div {
+		font-size: 19px;
+		line-height: 38px;
+	}
+}
+@media screen and (min-width: 400px) { 
+	div {
+		font-size: 25px;
+		line-height: 53px;
+	}
+}
