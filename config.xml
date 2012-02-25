@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="http://my.opera.com/BS-Harou/blog/weather-in-speeddial" defaultlocale="en" viewmodes="minimized">
+  <name short="Weather by Wundergound">Weather by Wundergound</name>
+  <description>Get the weather in your Speed Dial</description>
+  <author href="http://my.opera.com/BS-Harou/blog/">BS-Harou (Martin Kadlec)</author>
+  <icon src="icons/icon64.png"/>
+  
+  <access origin="*" subdomains="true" />
+
+
+  <feature name="opera:speeddial" required="true">
+    <param name="url" value="http://my.opera.com/"/>
+  </feature>
+
+  <preference name="interval" value="60" />
+  <preference name="city" value="Oslo, Norway" />
+  <preference name="deg" value="celsius" />
+  <preference name="format" value="YYYY-MM-DD" />
+  <preference name="lang" value="en" />
+  <preference name="special" value="" />
+  <preference name="redirect" value="http://my.opera.com/" />
+  <preference name="background" value="-o-linear-gradient(top, #bbeedd , white 20%)" />
+  <preference name="textColor" value="black" />
+  <preference name="transInterval" value="5" />
+  <preference name="hideLocation" value="false" />
+  <preference name="iconSet" value="Default" />
+</widget>
