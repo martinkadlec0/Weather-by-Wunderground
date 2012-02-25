@@ -1,0 +1,3 @@
+[submodule "lib/ajax"]
+	path = lib/ajax
+	url = git@github.com:BS-Harou/AJAX.MOD.git
