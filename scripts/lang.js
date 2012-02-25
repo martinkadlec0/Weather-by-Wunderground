@@ -76,7 +76,8 @@ var lang = {
 		transitions: 'Přechody',
 		transInterval: 'Interval',
 		transHint: 'V sekci \'Hlavní\' můžete zádat víc jak jedno město tím, že víc měst<br> oddělíte středníkem.',
-		hint: 'Tip'
+		hint: 'Tip',
+		iconSet: 'Typ ikon'
 	},
 	de: {
 		Mon: 'Mo',
