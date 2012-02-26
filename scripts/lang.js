@@ -269,6 +269,12 @@ var lang = {
 		textColor: 'Metin rengi',
 		main: 'Ana sayfa',
 		display: 'Görünüm'
+                hideLocation: 'Konumu gizle',
+                transitions: 'Geçişler',
+                transInterval: 'Zaman aralığı',
+                transHint: '\'Anasayfa\' bölümünden (noktalı virgül kullanarak) birden fazla şehir ekleyebilirsiniz.',
+                hint: 'İpucu',
+                iconSet: 'Simge seti'
 	},
 	uk: {
 		Mon: 'пн',
