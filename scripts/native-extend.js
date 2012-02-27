@@ -1,5 +1,6 @@
 Date.prototype.format = function() {
-    var that, txts;
+    var that, txts
+       , roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
     var addZero = function(num){
         return num < 10 ? '0' + num : num;
     };
@@ -20,6 +21,7 @@ Date.prototype.format = function() {
             case 'D':    return that.getDate();
             case 'MM':   return addZero(that.getMonth() + 1);
             case 'M':    return that.getMonth() + 1;
+            case 'R':    return roman[that.getMonth()];
             case 'YYYY': return that.getFullYear();
             case 'YY':   return that.getFullYear().toString().substr(2, 2);
             case 'hh':   return addZero(that.getHours());
@@ -44,7 +46,7 @@ Date.prototype.format = function() {
     return function(str){
         that = this;
         txts = [].splice.call(arguments, 1);
-        str = str.replace(/(DD|D|MM|M|YYYY|YY|hh|h|HH|H|mm|m|ss|s|u|U|W|y|w|G|a|%x)/g, dateVal);
+        str = str.replace(/(DD|D|MM|M|R|YYYY|YY|hh|h|HH|H|mm|m|ss|s|u|U|W|y|w|G|a|%x)/g, dateVal);
         return str;
     };
 }();

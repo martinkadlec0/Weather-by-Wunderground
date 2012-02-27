@@ -38,7 +38,8 @@ var lang = {
 		transInterval: 'Interval',
 		transHint: 'In \'Main\' section you can add more than one city by seperating<br> them with semicolon',
 		hint: 'Hint',
-		iconSet: 'Icon set'
+		iconSet: 'Icon set',
+		sec: 'sec.'
 	},
 	cs: {
 		Mon: 'Po',
@@ -77,7 +78,8 @@ var lang = {
 		transInterval: 'Interval',
 		transHint: 'V sekci \'Hlavní\' můžete zádat víc jak jedno město tím, že víc měst<br> oddělíte středníkem.',
 		hint: 'Tip',
-		iconSet: 'Typ ikon'
+		iconSet: 'Typ ikon',
+		sec: 'sek.'
 	},
 	de: {
 		Mon: 'Mo',
@@ -111,7 +113,8 @@ var lang = {
 		transInterval: 'Intervall',
 		transHint: 'Im Hauptabschnitt können sie mehrere, durch Semikolons<br>getrennte Orte einfügen.', 
 		hint: 'Tipp',
-		iconSet: 'Symbolsatz' 
+		iconSet: 'Symbolsatz',
+		sec: 'sek.'
 	},
 	sk: {
 		Mon: 'Po',
@@ -149,7 +152,8 @@ var lang = {
 		transitions: 'Prechody', 
 		transInterval: 'Interval', 
 		transHint: 'V \'Hlavné\' sekcií je možné pridať viac miest a oddeliť ich bodko-čiarkou', 
-		hint: 'Tip'
+		hint: 'Tip',
+		sec: 'sek.'
 	},
 	fr: {
 		Mon: 'Lun',
@@ -246,7 +250,8 @@ var lang = {
 		transInterval: 'Odstęp',
 		transHint: 'Możesz wskazać więcej niż jedno miasto (w dziale "Ogólne")<br> rozdzielając nazwy średnikiem.',
 		hint: 'Wskazówka',
-		iconSet: 'Zestaw ikon'
+		iconSet: 'Zestaw ikon',
+		sec: 's.'
 	},
 	ru: {
 		Mon: 'пон',
