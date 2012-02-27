@@ -240,7 +240,13 @@ var lang = {
 		background: 'Tło',
 		textColor: 'Kolor tekstu',
 		main: 'Ogólne',
-		display: 'Wygląd'
+		display: 'Wygląd',
+		hideLocation: 'Ukryj nazwę miasta',
+		transitions: 'Przejścia',
+		transInterval: 'Odstęp',
+		transHint: 'Możesz wskazać więcej niż jedno miasto (w dziale "Ogólne")<br> rozdzielając nazwy średnikiem.',
+		hint: 'Wskazówka',
+		iconSet: 'Zestaw ikon'
 	},
 	ru: {
 		Mon: 'пон',

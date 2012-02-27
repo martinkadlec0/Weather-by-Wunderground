@@ -61,7 +61,7 @@ JSON.isParseable = function(str) {
 // --- Adding new objects and global functions (not really native extending, but I don't want to create new file for that)
 
 function SemiArray (val) {
-    this.items = val.split(/\s*;\s/);
+    this.items = val.split(/\s*;\s*/);
 }
 
 SemiArray.prototype.last = function(val) {
