@@ -33,7 +33,7 @@ function imageErrorHandler() {
 
 /* interval callback */
 function getWeatherInfo() {
-	var	cities = (new SemiArray(w.preferences.city)).items;
+	var cities = (new SemiArray(w.preferences.city)).items;
 	clearInterval(trans.interval);
 	trans.interval = null;
 	trans.tpls = [];
@@ -99,7 +99,7 @@ function handleError(e) {
 }
 
 function handleTransition() {
-	var	cities = (new SemiArray(w.preferences.city)).items;
+	var cities = (new SemiArray(w.preferences.city)).items;
 	trans.pos++;
 	if (trans.pos >= trans.tpls.length) {
 		trans.pos = 0;

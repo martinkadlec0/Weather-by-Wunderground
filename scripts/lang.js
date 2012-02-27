@@ -99,7 +99,19 @@ var lang = {
 		redirect: 'Zieladresse',
 		format: 'Datumsformat',
 		reload: 'Neu laden',
-		options: 'Optionen'
+		options: 'Optionen',
+		celsius: 'Celsius',
+		fahrenheit: 'Fahrenheit',
+		background: 'Hintergrund',
+		textColor: 'Textfarbe',
+		main: 'Hauptabschnitt',  /* 1 */ 
+		display: 'Anzeige',
+		hideLocation: 'Standort ausblenden',  
+		transitions: 'Übergänge',
+		transInterval: 'Intervall',
+		transHint: 'Im Hauptabschnitt können sie mehrere, durch Semikolons<br>getrennte Orte einfügen.', 
+		hint: 'Tipp',
+		iconSet: 'Symbolsatz' 
 	},
 	sk: {
 		Mon: 'Po',
