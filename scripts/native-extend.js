@@ -174,7 +174,7 @@ WeatherTemplate.prototype.load = function(parser) {
             parser.position = i;
             setTimeout(function(a, b) {
                 //async image loading
-                a.src = b;
+                a.src = b + '?' + Math.round(Math.random()*100000); // ?xxxxxx to prevent Opera buggy caching
             }, 1, this.imgs[i], parser.icon_url);
 
             this.imgs[i].alt = parser.conditions;
