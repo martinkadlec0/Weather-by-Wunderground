@@ -6,6 +6,7 @@ body {
   background: -o-linear-gradient(top, #bbeedd , white 20%);
 }
 table {
+  -o-transition: all 0s 0s;
   table-layout: fixed;
   position: absolute;
   width: 76%;

@@ -178,7 +178,9 @@
 				</td>
 				<td>
 					<select id="transType">
+						<option value="">none</option>
 						<option value="toLeft">to left</option>
+						<option value="toRight">to right</option>
 						<option value="opacity">opacity</option>
 					</select>
 				</td>
@@ -193,10 +195,17 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="transFPS">{{transFPS}}: </label>
+					<label for="transFunc">{{transFunc}}: </label>
 				</td>
 				<td>
-					<input type="number" id="transFPS" min="1" max="120">
+					<select id="transFunc">
+						<option>ease</option>
+						<option>linear</option>
+						<option>ease-in</option>
+						<option>ease-out</option>
+						<option>ease-in-out</option>
+						<option>cubic-bezier(0,1,1,0)</option>
+					</select>
 				</td>
 			</tr>
 		</tbody>

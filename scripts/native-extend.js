@@ -186,8 +186,8 @@ WeatherTemplate.prototype.load = function(parser) {
 
 WeatherTemplate.prototype.show = function(anim) {
     var b = document.body;
-    if (anim) {
-        Transitions.toLeft(this, b.firstElementChild, this.tree);
+    if (anim && widget.preferences.transType && widget.preferences.transType in Transitions) {
+        Transitions[widget.preferences.transType](this, b.firstElementChild, this.tree);
     } else {
         b.replaceChild(this.tree, b.firstElementChild);
     }
@@ -205,51 +205,58 @@ Transitions.__defineGetter__('duration', function() {
     return parseInt(widget.preferences.transDuration) || 500;
 });
 
+Transitions.__defineGetter__('func', function() {
+    return parseInt(widget.preferences.tranFunc) || 'ease';
+});
+
 Transitions.opacity = function(tpl, old, cur) {
-    var anim = setInterval(function() {
-        old.style.opacity -= 0.05;
-    }, 1000/this.FPS);
+    var that = this;
+    cur.style.opacity = 0;
+    old.style.OTransition = 'all ' + this.duration/2/1000 + 's ' + this.func;
+    cur.style.OTransition = 'all ' + this.duration/2/1000 + 's ' + this.func;
+    old.style.opacity = 0;
     setTimeout(function() {
-        clearInterval(anim);
-        cur.style.opacity = 0;
-        document.body.appendChild(cur);
-        anim = setInterval(function() {
-            cur.style.opacity += 0.05;
-        }, 1000/this.FPS);
+        d.body.appendChild(cur);
         setTimeout(function() {
-                clearInterval(anim);
-                tpl.show();
-                cur.style.opacity = 1;
-                old.style.opacity = 1;
-        }, this.duration / 2);
-    }, this.duration / 2 );
+            cur.style.opacity = 1;
+        }, 1);
+        setTimeout(function() {
+            tpl.show();
+            old.style.opacity = 1;
+        }, that.duration/2);
+    }, this.duration/2);
 };
 
 Transitions.toLeft = function(tpl, old, cur) {
-    var startMargin = cur.currentStyle.marginLeft;
-    var startLeft = cur.currentStyle.left;
-    oldLeft = old.offsetLeft;
-    curLeft = innerWidth;
-    old.style.left = oldLeft + 'px';
-    cur.style.left = curLeft + 'px';
-    old.style.marginLeft = '0px';
-    cur.style.marginLeft = '0px';
-    document.body.appendChild(cur);
-    var finish = innerWidth/2 - cur.offsetWidth / 2;
-    var krok = (innerWidth - finish) / (this.duration / (1000 / this.FPS));
-    var add = 0;
     var that = this;
-    var anim = setInterval(function() {
-        old.style.left = (oldLeft -= krok) + 'px';
-        cur.style.left = (curLeft -= krok) + 'px';
-        add += 1000/that.FPS;
-        if (add>that.duration) {
-            clearInterval(anim);
+    var startMargin = parseInt(old.currentStyle.marginLeft);
+    cur.style.marginLeft = '50%';
+    old.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    cur.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    document.body.appendChild(cur);
+    setTimeout(function() {
+        old.style.marginLeft = startMargin - 50 + startMargin + '%';
+        cur.style.marginLeft = startMargin + '%';
+        setTimeout(function() {
             tpl.show();
-            old.style.left = startLeft;
-            old.style.marginLeft = startMargin;   
-            cur.style.left = startLeft;
-            cur.style.marginLeft = startMargin;
-        }
-    }, 1000/this.FPS);
+            old.style.marginLeft = startMargin + '%';
+        }, that.duration);
+    }, 1);   
+};
+
+Transitions.toRight = function(tpl, old, cur) {
+    var that = this;
+    var startMargin = parseInt(old.currentStyle.marginLeft);
+    cur.style.marginLeft = startMargin - 50 + startMargin + '%';
+    old.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    cur.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    document.body.appendChild(cur);
+    setTimeout(function() {
+        old.style.marginLeft = '50%';
+        cur.style.marginLeft = startMargin + '%';
+        setTimeout(function() {
+            tpl.show();
+            old.style.marginLeft = startMargin + '%';
+        }, that.duration);
+    }, 1);   
 };

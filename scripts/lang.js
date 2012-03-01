@@ -42,7 +42,7 @@ var lang = {
 		sec: 'sec.',
 		transDuration: 'Duration',
 		transType: 'Type',
-		transFPS: 'FPS'
+		transFunc: 'Function'
 	},
 	cs: {
 		Mon: 'Po',

@@ -30,38 +30,41 @@ function init() {
 	var city = d.getElementById('city');
 	city.addEventListener('keypress', getAutocomplete, false);
 
-	var lang = d.getElementById('lang');
-	lang.selectedIndex = selectFinder(lang, w.preferences.lang);
-	lang.addEventListener('change', handleVal, false);
-
-	var iconSet = d.getElementById('iconSet');
-	iconSet.selectedIndex = selectFinder(iconSet, w.preferences.iconSet);
-	iconSet.addEventListener('change', handleVal, false);
-
-	var transType = d.getElementById('transType');
-	transType.selectedIndex = selectFinder(transType, w.preferences.transType);
-	transType.addEventListener('change', handleVal, false);
-
 	var hideLocation = d.getElementById('hideLocation');
 	hideLocation.checked = w.preferences.hideLocation == 'true' ? true : false;
 	hideLocation.addEventListener('change', handleVal, false);
-
-	var rows = ['city', 'format', 'interval', 'redirect', 'background', 'textColor', 'transInterval', 'transFPS', 'transDuration'];
-	for (var i = 0, j = rows.length; i < j; i++) {
-		var tmp = d.getElementById(rows[i]);
-		tmp.value = w.preferences[rows[i]] || (rows[i] == 'format' ? 'YYYY-MM-DD' : '');
-		if ('color' in tmp.dataset) {
-			tmp.nextElementSibling.style.background = tmp.value;
-		}
-		tmp.addEventListener('keyup', handleVal, false);
-		tmp.addEventListener('change', handleVal, false);
-	}
 
 	var reload = d.getElementById('reload');
 	reload.addEventListener('click', reloadNow, false);
 
 	var special = d.getElementById('special');
 	special.addEventListener('click', showSpecial, false);
+
+	// SELECTS
+	var rows = ['lang', 'iconSet', 'transType', 'transFunc'];
+	for (var i = 0, j = rows.length; i < j; i++) {
+		var tmp = d.getElementById(rows[i]);
+		if (tmp) {
+			tmp.selectedIndex = selectFinder(tmp, w.preferences[rows[i]]);
+			tmp.addEventListener('change', handleVal, false);
+		}
+	}
+
+	// BASIC INPUTS
+	rows = ['city', 'format', 'interval', 'redirect', 'background', 'textColor', 'transInterval', 'transDuration'];
+	for (i = 0, j = rows.length; i < j; i++) {
+		var tmp = d.getElementById(rows[i]);
+		if (tmp) {
+			tmp.value = w.preferences[rows[i]] || (rows[i] == 'format' ? 'YYYY-MM-DD' : '');
+			if ('color' in tmp.dataset) {
+				tmp.nextElementSibling.style.background = tmp.value;
+			}
+			tmp.addEventListener('keyup', handleVal, false);
+			tmp.addEventListener('change', handleVal, false);
+		}
+	}
+
+	
 }
 
 function handleNav(e) {
@@ -83,7 +86,7 @@ function showSpecial() {
 
 function selectFinder(sc, val) {
 	var opts = sc.getElementsByTagName('option');
-	for (var i=0,j=opts.length;i<j;i++) {
+	for (var i=0 ,j=opts.length; i < j; i++) {
 		if (val == opts[i].value) {
 			return i;
 		}
@@ -96,12 +99,8 @@ function reloadNow() {
 }
 
 function handleVal(e) {
-	if (this.type === 'checkbox') {
-		w.preferences[this.id] = this.checked.toString();
-	} else {
-		w.preferences[this.id] = this.value;
-	}
-	if (this.id === 'lang') window.location.reload();
+	w.preferences[this.id] = this.type === 'checkbox' ?  this.checked.toString() : this.value;
+	if (this.id === 'lang') { window.location.reload(); }
 	if ('color' in this.dataset) {
 		this.nextElementSibling.style.background = 'none'; // change color to "none" for wrong colors
 		this.nextElementSibling.style.background = this.value; // throws CSS errors :/

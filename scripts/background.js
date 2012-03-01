@@ -63,7 +63,7 @@ function handleWeatherSuccess(e) {
 
 			wTpl = new WeatherTemplate(wPars, imageErrorHandler);
 			if (!trans.tpls.length) {
-				wTpl.show();
+				wTpl.show(true);
 			} else  if (!trans.interval) {
 				trans.interval = setInterval(handleTransition, parseFloat(w.preferences.transInterval || 5) * 1000);
 			}
@@ -105,7 +105,7 @@ function handleTransition() {
 		trans.pos = 0;
 	}
 	var cTpl = trans.tpls[trans.pos];
-	cTpl.show('opacity');
+	cTpl.show(true);
 	sd.title = dict('weather') + ': ' + cities[trans.pos] + ' ' + cTpl.parser.date;
 }
 
