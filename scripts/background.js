@@ -34,9 +34,7 @@ function imageErrorHandler() {
 /* interval callback */
 function getWeatherInfo() {
 	var cities = (new SemiArray(w.preferences.city)).items;
-	clearInterval(trans.interval);
-	trans.interval = null;
-	trans.tpls = [];
+	Transitions.reset();
 	try {
 		c.abort();
 		for (var i = 0, j = cities.length; i < j; i++) {
@@ -62,12 +60,7 @@ function handleWeatherSuccess(e) {
 			// put data from parser to template
 
 			wTpl = new WeatherTemplate(wPars, imageErrorHandler);
-			if (!trans.tpls.length) {
-				wTpl.show(true);
-			} else  if (!trans.interval) {
-				trans.interval = setInterval(handleTransition, parseFloat(w.preferences.transInterval || 5) * 1000);
-			}
-			trans.tpls.push(wTpl);
+			Transitions.loadTemplate(wTpl);
 
 			// new speed dial item title
 			sd.title = dict('weather') + ': ' + (w.preferences.hideLocation != 'true' ? wPars.place + ' ' : '') + wPars.date;
@@ -96,17 +89,6 @@ function handleError(e) {
 		sd.title = dict('offline');
 		d.body.addEventListener('online', handleOnline, false);
 	}
-}
-
-function handleTransition() {
-	var cities = (new SemiArray(w.preferences.city)).items;
-	trans.pos++;
-	if (trans.pos >= trans.tpls.length) {
-		trans.pos = 0;
-	}
-	var cTpl = trans.tpls[trans.pos];
-	cTpl.show(true);
-	sd.title = dict('weather') + ': ' + cities[trans.pos] + ' ' + cTpl.parser.date;
 }
 
 /* online event callback */

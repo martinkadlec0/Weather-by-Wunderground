@@ -132,7 +132,7 @@ WeatherParser.prototype.__defineGetter__('conditions', function() {
 
 WeatherParser.prototype.__defineGetter__('temperature', function() {
     var w = widget;
-    return this.pos.querySelector('high ' + w.preferences.deg).textContent + (special('dayonly') ? '°' : '/' + this.pos.querySelector('low ' + w.preferences.deg).textContent);
+    return this.pos.querySelector('high ' + widget.preferences.deg).textContent + (special('dayonly') ? '°' : '/' + this.pos.querySelector('low ' + widget.preferences.deg).textContent);
 });
 
 WeatherParser.prototype.__defineGetter__('place', function() {
@@ -190,16 +190,53 @@ WeatherTemplate.prototype.show = function(anim) {
         Transitions[widget.preferences.transType](this, b.firstElementChild, this.tree);
     } else {
         b.replaceChild(this.tree, b.firstElementChild);
+        if (Transitions.useInterval) {
+            Transitions.interval = setTimeout(function() {
+                Transitions.handleInterval();
+            }, parseFloat(widget.preferences.transInterval || 5) * 1000);
+        }
     }
 };
 
-// -- transitions
+// -- Transitions
 
 Transitions = { /* namespace */ };
 
-Transitions.__defineGetter__('FPS', function() {
-    return parseInt(widget.preferences.transFPS) || 60;
-});
+Transitions.reset = function() {
+    this.tpls = [];
+    this.pos = 0;
+    this.useInterval = false;
+    if (this.interval) {
+        clearTimeout(this.interval);
+    }
+    this.interval = null;
+};
+Transitions.reset();
+
+Transitions.handleInterval = function() {
+    var cities = (new SemiArray(widget.preferences.city)).items;
+    this.pos++;
+    if (this.pos >= this.tpls.length) {
+        this.pos = 0;
+    }
+    var cTpl = this.tpls[this.pos];
+    cTpl.show(true);
+    setTimeout(function() {
+        opera.contexts.speeddial.title = dict('weather') + ': ' + cities[Transitions.pos] + ' ' + cTpl.parser.date;
+    }, this.duration / 2 );
+};
+
+Transitions.loadTemplate = function(tpl) {
+    if (!this.tpls.length) {
+        tpl.show(true);
+    } else  if (!this.useInterval) {
+        this.useInterval = true;
+    }
+    this.tpls.push(tpl);
+}
+
+
+// -----------------------------
 
 Transitions.__defineGetter__('duration', function() {
     return parseInt(widget.preferences.transDuration) || 500;
@@ -228,35 +265,29 @@ Transitions.opacity = function(tpl, old, cur) {
 };
 
 Transitions.toLeft = function(tpl, old, cur) {
-    var that = this;
     var startMargin = parseInt(old.currentStyle.marginLeft);
-    cur.style.marginLeft = '50%';
-    old.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
-    cur.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    this.animate(old, 'marginLeft', startMargin - 50 + startMargin + '%', startMargin + '%', tpl);
+    this.animate(cur, 'marginLeft', startMargin + '%', '50%');
     document.body.appendChild(cur);
-    setTimeout(function() {
-        old.style.marginLeft = startMargin - 50 + startMargin + '%';
-        cur.style.marginLeft = startMargin + '%';
-        setTimeout(function() {
-            tpl.show();
-            old.style.marginLeft = startMargin + '%';
-        }, that.duration);
-    }, 1);   
 };
 
 Transitions.toRight = function(tpl, old, cur) {
-    var that = this;
     var startMargin = parseInt(old.currentStyle.marginLeft);
-    cur.style.marginLeft = startMargin - 50 + startMargin + '%';
-    old.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
-    cur.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
+    this.animate(old, 'marginLeft', '50%', startMargin + '%', tpl);
+    this.animate(cur, 'marginLeft', startMargin + '%', startMargin - 50 + startMargin + '%');
     document.body.appendChild(cur);
+};
+
+Transitions.animate = function(what, val, to, from, tpl) {
+    what.style[val] = from;
+    what.style.OTransition = 'all ' + this.duration/1000 + 's ' + this.func;
     setTimeout(function() {
-        old.style.marginLeft = '50%';
-        cur.style.marginLeft = startMargin + '%';
-        setTimeout(function() {
+        what.style[val] = to;
+    }, 1);
+    if (tpl) {
+         setTimeout(function() {
             tpl.show();
-            old.style.marginLeft = startMargin + '%';
-        }, that.duration);
-    }, 1);   
+            what.style[val] = from;
+        }, this.duration);
+    }
 };
