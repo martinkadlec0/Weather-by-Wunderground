@@ -194,6 +194,8 @@ WeatherTemplate.prototype.show = function(anim) {
             Transitions.interval = setTimeout(function() {
                 Transitions.handleInterval();
             }, parseFloat(widget.preferences.transInterval || 5) * 1000);
+        } else {
+            Transitions.firstEnded = true;
         }
     }
 };
@@ -205,6 +207,7 @@ Transitions = { /* namespace */ };
 Transitions.reset = function() {
     this.tpls = [];
     this.pos = 0;
+    this.firstEnded = false;
     this.useInterval = false;
     if (this.interval) {
         clearTimeout(this.interval);
@@ -231,6 +234,11 @@ Transitions.loadTemplate = function(tpl) {
         tpl.show(true);
     } else  if (!this.useInterval) {
         this.useInterval = true;
+        if (Transitions.firstEnded) {
+            Transitions.interval = setTimeout(function() {
+                Transitions.handleInterval();
+            }, parseFloat(widget.preferences.transInterval || 5) * 1000);
+        }
     }
     this.tpls.push(tpl);
 }
