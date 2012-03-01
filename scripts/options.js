@@ -7,6 +7,10 @@ var
 ;
 
 function init() {
+	d.body.innerHTML = document.body.innerHTML.replace(/{{(\w+)}}/gm, function(all, dc) {
+		return dict(dc);
+	});
+	d.body.hidden = false;
 	// NAV
 	var nav = d.querySelector('nav');
 	nav.addEventListener('click', handleNav, false);
@@ -34,11 +38,15 @@ function init() {
 	iconSet.selectedIndex = selectFinder(iconSet, w.preferences.iconSet);
 	iconSet.addEventListener('change', handleVal, false);
 
+	var transType = d.getElementById('transType');
+	transType.selectedIndex = selectFinder(transType, w.preferences.transType);
+	transType.addEventListener('change', handleVal, false);
+
 	var hideLocation = d.getElementById('hideLocation');
 	hideLocation.checked = w.preferences.hideLocation == 'true' ? true : false;
 	hideLocation.addEventListener('change', handleVal, false);
 
-	var rows = ['city', 'format', 'interval', 'redirect', 'background', 'textColor', 'transInterval']
+	var rows = ['city', 'format', 'interval', 'redirect', 'background', 'textColor', 'transInterval', 'transFPS', 'transDuration'];
 	for (var i = 0, j = rows.length; i < j; i++) {
 		var tmp = d.getElementById(rows[i]);
 		tmp.value = w.preferences[rows[i]] || (rows[i] == 'format' ? 'YYYY-MM-DD' : '');

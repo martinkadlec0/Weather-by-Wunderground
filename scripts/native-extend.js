@@ -195,11 +195,16 @@ WeatherTemplate.prototype.show = function(anim) {
 
 // -- transitions
 
-Transitions = function(){
+Transitions = { /* namespace */ };
 
-}
-Transitions.FPS = 50; // f/s
-Transitions.duration = 500; // ms
+Transitions.__defineGetter__('FPS', function() {
+    return parseInt(widget.preferences.transFPS) || 60;
+});
+
+Transitions.__defineGetter__('duration', function() {
+    return parseInt(widget.preferences.transDuration) || 500;
+});
+
 Transitions.opacity = function(tpl, old, cur) {
     var anim = setInterval(function() {
         old.style.opacity -= 0.05;

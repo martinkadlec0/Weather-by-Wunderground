@@ -9,13 +9,13 @@
 	<script src="scripts/native-extend.js"></script>
 	<script src="scripts/options.js"></script>
 </head>
-<body>
-	<h1><script>document.write(dict('options'));</script></h1>
+<body hidden>
+	<h1>{{options}}</h1>
 	<nav>
 		<ul>
-			<li><script>document.write(dict('main'));</script></li>
-			<li><script>document.write(dict('display'));</script></li>
-			<li><script>document.write(dict('transitions'));</script></li>
+			<li>{{main}}</li>
+			<li>{{display}}</li>
+			<li>{{transitions}}</li>
 		</ul>
 		<svg id='section-arrow'>
 			 <polygon points="0,0 5,4 10,0" style="fill:#111;stroke:none;"/>
@@ -28,14 +28,14 @@
 					&nbsp;
 				</td>
 				<td>
-					<script>document.write('<input type="button" id="reload" value="'+dict('reload')+'">');</script>
+					<input type="button" id="reload" value="{{reload}}">
 				</td>
 			</tr>
 		</tfoot>
 		<tbody>
 			<tr>
 				<td>
-					<label for="city"><script>document.write(dict('city'));</script>: </label>
+					<label for="city">{{city}}: </label>
 				</td>
 				<td>
 					<input type="text" id="city">
@@ -44,18 +44,18 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="deg"><script>document.write(dict('degrees'));</script>: </label>
+					<label for="deg">{{degrees}}: </label>
 				</td>
 				<td>
 					<select id="deg">
-						<option value="celsius"><script>document.write(dict('celsius'));</script></option>
-						<option value="fahrenheit"><script>document.write(dict('fahrenheit'));</script></option>
+						<option value="celsius">{{celsius}}</option>
+						<option value="fahrenheit">{{fahrenheit}}</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="interval"><script>document.write(dict('refresh'));</script>: </label>
+					<label for="interval">{{refresh}}: </label>
 				</td>
 				<td>
 					<input type="number" id="interval" min="1"> min.
@@ -63,7 +63,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="lang"><script>document.write(dict('language'));</script>: </label>
+					<label for="lang">{{language}}: </label>
 				</td>
 				<td>
 					<select id="lang">
@@ -93,7 +93,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="redirect"><script>document.write(dict('redirect'));</script>: </label>
+					<label for="redirect">{{redirect}}: </label>
 				</td>
 				<td>
 					<input type="url" id="redirect">
@@ -103,7 +103,7 @@
 		<tbody class="hidden-form">
 			<tr>
 				<td>
-					<label for="format"><script>document.write(dict('format'));</script>: </label>
+					<label for="format">{{format}}: </label>
 				</td>
 				<td>
 					<input type="text" id="format">
@@ -111,7 +111,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="background"><script>document.write(dict('background'));</script>: </label>
+					<label for="background">{{background}}: </label>
 				</td>
 				<td>
 					<input type="text" id="background" data-color>
@@ -120,7 +120,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="textColor"><script>document.write(dict('textColor'));</script>: </label>
+					<label for="textColor">{{textColor}}: </label>
 				</td>
 				<td>
 					<input type="text" id="textColor"  data-color>
@@ -129,7 +129,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="iconSet"><script>document.write(dict('iconSet'));</script>: </label>
+					<label for="iconSet">{{iconSet}}: </label>
 				</td>
 				<td>
 					<select id="iconSet">
@@ -148,7 +148,7 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="hideLocation"><script>document.write(dict('hideLocation'));</script>: </label>
+					<label for="hideLocation">{{hideLocation}}: </label>
 				</td>
 				<td>
 					<input type="checkbox" id="hideLocation">
@@ -158,18 +158,45 @@
 		<tbody class="hidden-form">
 			<tr>
 				<td>
-					<label><script>document.write(dict('hint'));</script>: </label>
+					<label>{{hint}}: </label>
 				</td>
 				<td>
-					<script>document.write(dict('transHint'));</script>
+					{{transHint}}
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="transInterval"><script>document.write(dict('transInterval'));</script>: </label>
+					<label for="transInterval">{{transInterval}}: </label>
 				</td>
 				<td>
-					<input type="number" id="transInterval" min="1"> <script>document.write(dict('sec'));</script>
+					<input type="number" id="transInterval" min="1"> {{sec}}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="transType">{{transType}}: </label>
+				</td>
+				<td>
+					<select id="transType">
+						<option value="toLeft">to left</option>
+						<option value="opacity">opacity</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="transDuration">{{transDuration}}: </label>
+				</td>
+				<td>
+					<input type="number" id="transDuration" min="3000"> ms
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="transFPS">{{transFPS}}: </label>
+				</td>
+				<td>
+					<input type="number" id="transFPS" min="1" max="120">
 				</td>
 			</tr>
 		</tbody>

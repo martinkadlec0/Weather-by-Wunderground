@@ -39,7 +39,10 @@ var lang = {
 		transHint: 'In \'Main\' section you can add more than one city by seperating<br> them with semicolon',
 		hint: 'Hint',
 		iconSet: 'Icon set',
-		sec: 'sec.'
+		sec: 'sec.',
+		transDuration: 'Duration',
+		transType: 'Type',
+		transFPS: 'FPS'
 	},
 	cs: {
 		Mon: 'Po',

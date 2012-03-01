@@ -21,7 +21,11 @@
   <preference name="redirect" value="http://my.opera.com/" />
   <preference name="background" value="-o-linear-gradient(top, #bbeedd , white 20%)" />
   <preference name="textColor" value="black" />
-  <preference name="transInterval" value="5" />
   <preference name="hideLocation" value="false" />
   <preference name="iconSet" value="Default" />
+
+  <preference name="transInterval" value="5" />
+  <preference name="transDuration" value="500" />
+  <preference name="transFPS" value="60" />
+  <preference name="transType" value="toLeft" />
 </widget>
