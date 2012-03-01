@@ -105,7 +105,7 @@ function handleTransition() {
 		trans.pos = 0;
 	}
 	var cTpl = trans.tpls[trans.pos];
-	cTpl.show();
+	cTpl.show('opacity');
 	sd.title = dict('weather') + ': ' + cities[trans.pos] + ' ' + cTpl.parser.date;
 }
 

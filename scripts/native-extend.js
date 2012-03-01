@@ -184,7 +184,67 @@ WeatherTemplate.prototype.load = function(parser) {
     }
 };
 
-WeatherTemplate.prototype.show = function() {
+WeatherTemplate.prototype.show = function(anim) {
     var b = document.body;
-    b.replaceChild(this.tree, b.firstElementChild);
+    if (anim) {
+        Transitions.toLeft(this, b.firstElementChild, this.tree);
+    } else {
+        b.replaceChild(this.tree, b.firstElementChild);
+    }
+};
+
+// -- transitions
+
+Transitions = function(){
+
+}
+Transitions.FPS = 50; // f/s
+Transitions.duration = 500; // ms
+Transitions.opacity = function(tpl, old, cur) {
+    var anim = setInterval(function() {
+        old.style.opacity -= 0.05;
+    }, 1000/this.FPS);
+    setTimeout(function() {
+        clearInterval(anim);
+        cur.style.opacity = 0;
+        document.body.appendChild(cur);
+        anim = setInterval(function() {
+            cur.style.opacity += 0.05;
+        }, 1000/this.FPS);
+        setTimeout(function() {
+                clearInterval(anim);
+                tpl.show();
+                cur.style.opacity = 1;
+                old.style.opacity = 1;
+        }, this.duration / 2);
+    }, this.duration / 2 );
+};
+
+Transitions.toLeft = function(tpl, old, cur) {
+    var startMargin = cur.currentStyle.marginLeft;
+    var startLeft = cur.currentStyle.left;
+    oldLeft = old.offsetLeft;
+    curLeft = innerWidth;
+    old.style.left = oldLeft + 'px';
+    cur.style.left = curLeft + 'px';
+    old.style.marginLeft = '0px';
+    cur.style.marginLeft = '0px';
+    document.body.appendChild(cur);
+    var finish = innerWidth/2 - cur.offsetWidth / 2;
+    var krok = (innerWidth - finish) / (this.duration / (1000 / this.FPS));
+    var add = 0;
+    var that = this;
+    var anim = setInterval(function() {
+        old.style.left = (oldLeft -= krok) + 'px';
+        cur.style.left = (curLeft -= krok) + 'px';
+        add += 1000/that.FPS;
+        if (add>that.duration) {
+            clearInterval(anim);
+            tpl.show();
+            old.style.left = startLeft;
+            old.style.marginLeft = startMargin;   
+            cur.style.left = startLeft;
+            cur.style.marginLeft = startMargin;
+        }
+    }, 1000/this.FPS);
 };
