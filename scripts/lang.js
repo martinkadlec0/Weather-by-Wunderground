@@ -42,7 +42,13 @@ var lang = {
 		sec: 'sec.',
 		transDuration: 'Duration',
 		transType: 'Type',
-		transFunc: 'Function'
+		transFunc: 'Function',
+		other: 'Other',
+		cacheEnabled: 'Use image cache',
+		clearCache: 'Clear cache',
+		clear: 'Clear',
+		resetDefault: 'Reset defaults',
+		reset: 'Reset'
 	},
 	cs: {
 		Mon: 'Po',
@@ -82,7 +88,14 @@ var lang = {
 		transHint: 'V sekci \'Hlavní\' můžete zádat víc jak jedno město tím, že víc měst<br> oddělíte středníkem.',
 		hint: 'Tip',
 		iconSet: 'Typ ikon',
-		sec: 'sek.'
+		sec: 'sek.',
+		transDuration: 'Trvání',
+		transType: 'Typ',
+		transFunc: 'Funkce',
+		other: 'Ostatní',
+		cacheEnabled: 'Ukládat obrázky',
+		clearCache: 'Vymazat úložiště',
+		clear: 'Vymazat'
 	},
 	de: {
 		Mon: 'Mo',

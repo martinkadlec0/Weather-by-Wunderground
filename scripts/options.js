@@ -30,10 +30,6 @@ function init() {
 	var city = d.getElementById('city');
 	city.addEventListener('keypress', getAutocomplete, false);
 
-	var hideLocation = d.getElementById('hideLocation');
-	hideLocation.checked = w.preferences.hideLocation == 'true' ? true : false;
-	hideLocation.addEventListener('change', handleVal, false);
-
 	var reload = d.getElementById('reload');
 	reload.addEventListener('click', reloadNow, false);
 
@@ -46,6 +42,23 @@ function init() {
 		var tmp = d.getElementById(rows[i]);
 		if (tmp) {
 			tmp.selectedIndex = selectFinder(tmp, w.preferences[rows[i]]);
+			tmp.addEventListener('change', handleVal, false);
+		}
+	}
+
+	// BUTTONS
+	var clearCache  = d.getElementById('clearCache');
+	clearCache.addEventListener('click', handleClearCache, false);
+	
+	var resetDefault  = d.getElementById('resetDefault');
+	resetDefault.addEventListener('click', handleResetDefault, false);
+
+	// CHECKBOXES
+	var rows = ['hideLocation', 'cacheEnabled'];
+	for (var i = 0, j = rows.length; i < j; i++) {
+		var tmp = d.getElementById(rows[i]);
+		if (tmp) {
+			tmp.checked = w.preferences[rows[i]] == 'true' ? true : false;
 			tmp.addEventListener('change', handleVal, false);
 		}
 	}
@@ -63,8 +76,25 @@ function init() {
 			tmp.addEventListener('change', handleVal, false);
 		}
 	}
+}
 
-	
+
+function handleClearCache(e) {
+	if (confirm(dict('clearCache') + '?')) {
+		w.preferences.cache = '{}';
+	}
+}
+
+function handleResetDefault(e) {
+	if (confirm(dict('resetDefault') + '?')) {
+		var cn = AJAX.create();
+		cn.getData('config.xml', function(data) {
+			[].forEach.call(data.XML.querySelectorAll('preference'), function(val) {
+				w.preferences[val.getAttribute('name')] = val.getAttribute('value');
+			});
+			window.location.reload();
+		});
+	}
 }
 
 function handleNav(e) {

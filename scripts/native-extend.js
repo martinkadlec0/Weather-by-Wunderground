@@ -144,9 +144,43 @@ WeatherParser.prototype.__defineGetter__('date', function() {
     return (new Date(tmp * 1000)).format(widget.preferences.format || 'YYYY-MM-DD');
 });
 
+
+// -- Cache
+
+var Cache = {
+    data: {},
+    getBase64Image: function(img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        return canvas.toDataURL("image/png");
+    },
+    cacheImage: function() {
+        var src = this.src.split('?')[0];
+        if  (!(src in Cache.data)) {
+            Cache.data[src] = Cache.getBase64Image(this);
+            widget.preferences.cache = JSON.stringify(Cache.data);
+        }
+    },
+    getImage: function(src) {
+        if  (src in this.data) {
+            return this.data[src];
+        }
+        return null;
+    }
+};
+
+if (widget.preferences.cacheEnabled == 'true' && JSON.isParseable(widget.preferences.cache)) {
+    Cache.data = JSON.parse(widget.preferences.cache);
+}
+
+
+
 // -- Weather template
 
-var WeatherTemplate = function(p, eh) {
+var WeatherTemplate =  function(p, eh) {
     var d = document;
     if (!WeatherTemplate.originalTable) {
         WeatherTemplate.originalTable = document.querySelector('table');
@@ -158,7 +192,10 @@ var WeatherTemplate = function(p, eh) {
         this.imgs[i].addEventListener('error', eh, false);
     }
     this.load(p);
-}
+};
+
+
+
 
 WeatherTemplate.showOriginal = function() {
     if (this.originalTable) {
@@ -174,7 +211,15 @@ WeatherTemplate.prototype.load = function(parser) {
             parser.position = i;
             setTimeout(function(a, b) {
                 //async image loading
-                a.src = b + '?' + Math.round(Math.random()*100000); // ?xxxxxx to prevent Opera buggy caching
+                var tmp;
+                if (widget.preferences.cacheEnabled == 'true' && (tmp = Cache.getImage(b)) ) {
+                    a.src = tmp;
+                } else {
+                    a.src = b + '?' + Math.round(Math.random()*100000); // ?xxxxxx to prevent Opera buggy caching
+                    if (widget.preferences.cacheEnabled == 'true' && !(/^widget:/).test(b)) {
+                        a.addEventListener('load', Cache.cacheImage, false);
+                    }
+                }
             }, 1, this.imgs[i], parser.icon_url);
 
             this.imgs[i].alt = parser.conditions;

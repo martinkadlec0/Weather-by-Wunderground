@@ -28,4 +28,7 @@
   <preference name="transDuration" value="500" />
   <preference name="transFunc" value="ease" />
   <preference name="transType" value="none" />
+
+  <preference name="cache" value="{}" />
+  <preference name="cacheEnabled" value="false" />
 </widget>

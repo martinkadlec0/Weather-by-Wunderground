@@ -16,6 +16,7 @@
 			<li>{{main}}</li>
 			<li>{{display}}</li>
 			<li>{{transitions}}</li>
+			<li>{{other}}</li>
 		</ul>
 		<svg id='section-arrow'>
 			 <polygon points="0,0 5,4 10,0" style="fill:#111;stroke:none;"/>
@@ -206,6 +207,32 @@
 						<option>ease-in-out</option>
 						<option>cubic-bezier(0,1,1,0)</option>
 					</select>
+				</td>
+			</tr>
+		</tbody>
+		<tbody class="hidden-form">
+			<tr>	
+				<td>
+					<label for="cacheEnabled">{{cacheEnabled}}: </label>
+				</td>
+				<td>
+					<input type="checkbox" id="cacheEnabled">
+				</td>
+			</tr>
+			<tr>	
+				<td>
+					<label for="clearCache">{{clearCache}}: </label>
+				</td>
+				<td>
+					<input type="button" id="clearCache" value="{{clear}}">
+				</td>
+			</tr>
+			<tr>	
+				<td>
+					<label for="resetDefault">{{resetDefault}}: </label>
+				</td>
+				<td>
+					<input type="button" id="resetDefault" value="{{reset}}">
 				</td>
 			</tr>
 		</tbody>
