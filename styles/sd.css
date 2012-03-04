@@ -9,76 +9,79 @@ table {
   -o-transition: all 0s 0s;
   table-layout: fixed;
   position: absolute;
-  width: 76%;
-  height: 200px;
+  width: 78%;
+  height: 70%;
   left: 50%;
   top: 50%;
-  margin-left: -38%;
-  margin-top: -100px;
+  margin-left: -39%;
+  margin-top: -23%;
 }
 img {
-  padding: 5px;
+  padding: 0 5px;
   box-sizing: border-box;
   width: 100%; 
   border-radius: 10px;
 }
-.atlas {
-	border: none;
-}
 img:not([alt]) {
   width: 80%; 
 }
-td div {
-	margin: 0;
-	padding: 0;
-}
 td {
   text-align: center;
-  font-family: Verdana;
-  
+  font-family: Verdana; 
 }
 
+tr:nth-child(1) td {
+	vertical-align: middle;
+}
+tr:nth-child(2) td {
+	/*height: 30px;
+	max-height: 30px;*/
+	vertical-align: middle;
+}
+tr:nth-child(3) td {
+	vertical-align: middle;
+}
 
 @media screen and (min-width: 0px) and (max-width: 140px) { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 6px;
-		line-height: 10px;
+		height: 10px;
 	}
 }
 
 @media screen and (min-width: 140px) and (max-width: 180px) { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 8px;
-		line-height: 15px;
+		height: 15px;
 	}
 }
 @media screen and (min-width: 180px) and (max-width: 230px) { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 11px;
-		line-height: 17px;
+		height: 17px;
 	}
 }
 @media screen and (min-width: 230px) and (max-width: 260px) { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 13px;
-		line-height: 23px;
+		height: 23px;
 	}
 }
 @media screen and (min-width: 260px) and (max-width: 320px) { 
-	div {
+	 tr:not(:nth-child(2)) td {
 		font-size: 16px;
-		line-height: 28px;
+		height: 28px;
 	}
 }
 @media screen and (min-width: 320px) and (max-width: 400px)  { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 19px;
-		line-height: 38px;
+		height: 38px;
 	}
 }
 @media screen and (min-width: 400px) { 
-	div {
+	tr:not(:nth-child(2)) td {
 		font-size: 25px;
-		line-height: 53px;
+		height: 53px;
 	}
 }

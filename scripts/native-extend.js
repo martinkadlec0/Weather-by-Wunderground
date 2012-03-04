@@ -191,14 +191,13 @@ var WeatherTemplate =  function(p, eh) {
     }
     this.tree = WeatherTemplate.originalTable.cloneNode(true);
     this.imgs = this.tree.querySelectorAll('img');
-    this.rows = this.tree.querySelectorAll('td');
+    this.dayT = this.tree.querySelectorAll('tr:first-child td');
+    this.degT = this.tree.querySelectorAll('tr:last-child td');
     for (var i = 0, j = this.imgs.length; i < j; i++) {
         this.imgs[i].addEventListener('error', eh, false);
     }
     this.load(p);
 };
-
-
 
 
 WeatherTemplate.showOriginal = function() {
@@ -260,8 +259,8 @@ WeatherTemplate.prototype.load = function(parser) {
             }, 1, this.imgs[i], parser.icon_url, parser.icon);
                 
             this.imgs[i].alt = parser.conditions;
-            this.rows[i].querySelector("div").innerHTML = parser.weekday;
-            this.rows[i].querySelector("div:last-child").innerHTML = parser.temperature;
+            this.dayT[i].innerHTML = parser.weekday;
+            this.degT[i].innerHTML = parser.temperature;
         }
     }
 };
