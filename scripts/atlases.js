@@ -1,30 +1,23 @@
 var Atlases = {
-	"Atlas 1": {
-		name: "atlas1.png",
-		startX: 0,
-		startY: 0,
-		spaceX: 0,
-		spaceY: 0,
-		width: 96,
-		height: 122,
+	"Atlas 2": {
+		name: "atlas2.jpg",
 		weather: {
-			chancerain: [0, 1],
-			sunny: [0, 0],
-			clear: [0, 0],
-			cloudy: [2, 0],
-			partlycloudy: [1, 0],
-			mostlycloudy: [3, 0],
-			mostlycloudy: [1, 1],
-			thunderstorm: [0, 2],
-			storm: [3, 1],
-			tstorms: [0, 2],
-			rain: [3, 1],
-			mostlysunny: [1, 0],
-			snow: [2, 2],
-			chanceofsnow: [3, 2],
-			partlysunny: [2, 0],
-			hazy: [2, 1],
-			chancesnow: [3, 2]
+			chancerain: 	{x:   0, y: 225, w: 190, h: 190},
+			sunny: 			{x:   0, y:   0, w: 190, h: 190},
+			clear: 			{x:   0, y:   0, w: 190, h: 190},
+			cloudy: 		{x: 710, y: 225, w: 282, h: 190},
+			partlycloudy: 	{x: 250, y:   0, w: 190, h: 190},
+			mostlycloudy: 	{x: 250, y:   0, w: 190, h: 190},
+			thunderstorm: 	{x: 250, y: 225, w: 190, h: 190},
+			storm: 			{x: 750, y:   0, w: 190, h: 190},
+			tstorms: 		{x: 250, y: 225, w: 190, h: 190},
+			rain: 			{x:   0, y: 225, w: 190, h: 190},
+			mostlysunny: 	{x: 500, y:   0, w: 190, h: 190},
+			snow: 			{x: 500, y: 225, w: 190, h: 190},
+			chanceofsnow: 	{x: 500, y: 225, w: 190, h: 190},
+			partlysunny: 	{x: 500, y:   0, w: 190, h: 190},
+			hazy: 			{x:   0, y: 450, w: 190, h: 190},
+			chancesnow: 	{x: 500, y: 225, w: 190, h: 190}
 		}
 	}
 };

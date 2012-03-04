@@ -126,6 +126,10 @@ WeatherParser.prototype.__defineGetter__('icon_url', function() {
     return this.pos.getElementsByTagName('icon_url')[0].textContent;
 });
 
+WeatherParser.prototype.__defineGetter__('icon', function() {
+    return this.pos.getElementsByTagName('icon')[0].textContent;
+});
+
 WeatherParser.prototype.__defineGetter__('conditions', function() {
     return this.pos.getElementsByTagName('conditions')[0].textContent;
 });
@@ -204,17 +208,45 @@ WeatherTemplate.showOriginal = function() {
     }
 };
 
+WeatherTemplate.getImagePart = function() {
+    var cv = document.createElement('canvas');
+    var ct = cv.getContext('2d');
+    return function(img, icon) {
+        ct.clearRect(0, 0, icon.w, icon.h);
+        cv.width = icon.w;
+        cv.height = icon.h;
+        ct.drawImage(img, -icon.x, -icon.y);
+       
+        return cv.toDataURL("image/png");
+
+    };
+}();
+
 WeatherTemplate.prototype.load = function(parser) {
     this.parser = parser;
+    var iS = widget.preferences.iconSet, atImg;
+    if (iS in Atlases) {
+        atImg = d.createElement('img');
+        atImg.src = './images/atlases/' + Atlases[iS].name;
+    }
+
     if (parser) {
         for (var i = 0; i < 3; i++) {
             parser.position = i;
-            var iS = widget.preferences.iconSet;
-            if (iS in Atlases) {
-                img.src = "./images/atlases/" + Atlases[iS].name;
-            } else {
-                setTimeout(function(a, b) {
-                    //async image loading
+            
+            setTimeout(function(a, b, icon) {
+                //async image loading
+                if (iS in Atlases) {
+                    if (icon in Atlases[iS].weather) {
+                        icon = Atlases[iS].weather[icon];
+                    } else {
+                        console.log('ICON NOT FOUND!: ' + icon);
+                        icon = {x: 0, y: 0, w: 0, h: 0};
+                    }
+                    a.src = WeatherTemplate.getImagePart(atImg, icon); 
+                } else {
+                    a.className = '';
+                    a.style.backgroundImage = 'none';
                     var tmp;
                     if (widget.preferences.cacheEnabled == 'true' && (tmp = Cache.getImage(b)) ) {
                         a.src = tmp;
@@ -224,10 +256,9 @@ WeatherTemplate.prototype.load = function(parser) {
                             a.addEventListener('load', Cache.cacheImage, false);
                         }
                     }
-                }, 1, this.imgs[i], parser.icon_url);
+                }
+            }, 1, this.imgs[i], parser.icon_url, parser.icon);
                 
-            }
-
             this.imgs[i].alt = parser.conditions;
             this.rows[i].querySelector("div").innerHTML = parser.weekday;
             this.rows[i].querySelector("div:last-child").innerHTML = parser.temperature;

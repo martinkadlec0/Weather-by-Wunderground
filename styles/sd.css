@@ -22,6 +22,9 @@ img {
   width: 100%; 
   border-radius: 10px;
 }
+.atlas {
+	border: none;
+}
 img:not([alt]) {
   width: 80%; 
 }
