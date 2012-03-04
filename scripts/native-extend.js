@@ -209,18 +209,24 @@ WeatherTemplate.prototype.load = function(parser) {
     if (parser) {
         for (var i = 0; i < 3; i++) {
             parser.position = i;
-            setTimeout(function(a, b) {
-                //async image loading
-                var tmp;
-                if (widget.preferences.cacheEnabled == 'true' && (tmp = Cache.getImage(b)) ) {
-                    a.src = tmp;
-                } else {
-                    a.src = b + '?' + Math.round(Math.random()*100000); // ?xxxxxx to prevent Opera buggy caching
-                    if (widget.preferences.cacheEnabled == 'true' && !(/^widget:/).test(b)) {
-                        a.addEventListener('load', Cache.cacheImage, false);
+            var iS = widget.preferences.iconSet;
+            if (iS in Atlases) {
+                img.src = "./images/atlases/" + Atlases[iS].name;
+            } else {
+                setTimeout(function(a, b) {
+                    //async image loading
+                    var tmp;
+                    if (widget.preferences.cacheEnabled == 'true' && (tmp = Cache.getImage(b)) ) {
+                        a.src = tmp;
+                    } else {
+                        a.src = b + '?' + Math.round(Math.random()*100000); // ?xxxxxx to prevent Opera buggy caching
+                        if (widget.preferences.cacheEnabled == 'true' && !(/^widget:/).test(b)) {
+                            a.addEventListener('load', Cache.cacheImage, false);
+                        }
                     }
-                }
-            }, 1, this.imgs[i], parser.icon_url);
+                }, 1, this.imgs[i], parser.icon_url);
+                
+            }
 
             this.imgs[i].alt = parser.conditions;
             this.rows[i].querySelector("div").innerHTML = parser.weekday;
