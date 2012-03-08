@@ -102,8 +102,10 @@ function handleOnline(e) {
 opera.extension.onmessage = function(e) {
 	if (e.data === 'reload') {
 		sd.url = w.preferences.redirect;
-		d.body.style.background = w.preferences.background.split(';')[0];
-		d.body.style.color = w.preferences.textColor.split(';')[0];
+		if ('background' in w.preferences && w.preferences.background) {
+			d.body.style.background = w.preferences.background.split(';')[0]; }
+		if ('textColor' in w.preferences &&w.preferences.textColor) {
+			d.body.style.color = w.preferences.textColor.split(';')[0]; }
 		refresh = w.preferences.interval * 60 * 1000;
 		clearTimeout(tOut);
 		getWeatherInfo();

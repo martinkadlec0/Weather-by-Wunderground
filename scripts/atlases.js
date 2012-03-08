@@ -2,22 +2,21 @@ var Atlases = {
 	"Atlas 1": {
 		name: "atlas1.png",
 		weather: {
-			sunny: 			{x:  17, y:  22, w: 94, h: 94},
-			clear: 			{x:  17, y:  22, w: 94, h: 94},
-			mostlysunny: 	{x: 108, y:  22, w: 94, h: 94},
-			partlycloudy: 	{x: 216, y:  22, w: 94, h: 94},
-			partlysunny: 	{x: 216, y:  22, w: 94, h: 94},
-			mostlycloudy: 	{x: 321, y:  15, w: 94, h: 94},
-			cloudy: 		{x:  11, y: 134, w: 94, h: 94},
-			chancerain: 	{x: 126, y: 134, w: 94, h: 94},
-			rain: 			{x: 336, y: 134, w: 94, h: 94},
-			thunderstorm: 	{x:  20, y: 237, w: 94, h: 94},
-			tstorms: 		{x:  20, y: 237, w: 94, h: 94},
-			storm: 			{x: 336, y: 134, w: 94, h: 94},
-			snow: 			{x: 238, y: 237, w: 94, h: 94},
-			chanceofsnow: 	{x: 345, y: 234, w: 94, h: 94},
-			chancesnow: 	{x: 238, y: 237, w: 94, h: 94},
-			hazy: 			{x: 226, y: 134, w: 94, h: 94}
+			sunny: 			{ x:  17, y:  22, w: 94, h: 65 },
+			clear: 			{ x:  17, y:  22, w: 94, h: 65 },
+			mostlysunny: 	{ x: 108, y:  22, w: 94, h: 65 },
+			partlycloudy: 	{ x: 216, y:  22, w: 94, h: 65 },
+			partlysunny: 	{ x: 216, y:  22, w: 94, h: 65 },
+			mostlycloudy: 	{ x: 321, y:  15, w: 94, h: 65 },
+			cloudy: 		{ x:  11, y: 134, w: 94, h: 65 },
+			chancerain: 	{ x: 126, y: 134, w: 94, h: 65 },
+			rain: 			{ x: 336, y: 134, w: 94, h: 65 },
+			thunderstorm: 	{ x:  20, y: 237, w: 94, h: 65 },
+			tstorms: 		{ x:  20, y: 237, w: 94, h: 65 },
+			storm: 			{ x: 336, y: 134, w: 94, h: 65 },
+			snow: 			{ x: 345, y: 234, w: 94, h: 65 },
+			chancesnow: 	{ x: 238, y: 237, w: 94, h: 65 },
+			hazy: 			{ x: 226, y: 134, w: 94, h: 65 }
 		}
 	},
 	"Atlas 2": {
