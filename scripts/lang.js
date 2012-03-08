@@ -95,7 +95,9 @@ var lang = {
 		other: 'Ostatní',
 		cacheEnabled: 'Ukládat obrázky',
 		clearCache: 'Vymazat úložiště',
-		clear: 'Vymazat'
+		clear: 'Vymazat',
+		resetDefault: 'Výchozí hodnoty',
+		reset: 'Reset'
 	},
 	de: {
 		Mon: 'Mo',
