@@ -315,7 +315,12 @@ var lang = {
 		transInterval: 'Zaman aralığı',
 		transHint: '\'Anasayfa\' bölümünden (noktalı virgül kullanarak) birden fazla<br>şehir ekleyebilirsiniz.',
 		hint: 'İpucu',
-		iconSet: 'Simge seti'
+		iconSet: 'Simge seti',
+                transition animations: 'Geçiş animasyonları'
+                better localization algorithm in preferences: 'Tercihlerde daha iyi yerelleştirme işlemi',
+                cache (disabled by default):  Ön bellek (varsayılan olarak devre dışı)',
+                reset default values: 'Varsayılan ayarlara sıfırla',
+                atlases (Local image maps with nice icons: 'Atlaslar (hoş simgeli yerel görüntü haritaları)' 
 	},
 	uk: {
 		Mon: 'пн',
