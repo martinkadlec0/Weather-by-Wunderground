@@ -316,11 +316,16 @@ var lang = {
 		transHint: '\'Anasayfa\' bölümünden (noktalı virgül kullanarak) birden fazla<br>şehir ekleyebilirsiniz.',
 		hint: 'İpucu',
 		iconSet: 'Simge seti',
-                transition animations: 'Geçiş animasyonları'
-                better localization algorithm in preferences: 'Tercihlerde daha iyi yerelleştirme işlemi',
-                cache (disabled by default):  Ön bellek (varsayılan olarak devre dışı)',
-                reset default values: 'Varsayılan ayarlara sıfırla',
-                atlases (Local image maps with nice icons: 'Atlaslar (hoş simgeli yerel görüntü haritaları)' 
+                sec: 'sn.',
+                transDuration: 'Süre',
+                transType: 'Tür',
+                transFunc: 'Fonksiyon',
+                other: 'Diğer',
+                cacheEnabled: 'Resim ön belleğini kullan',
+                clearCache: 'Ön belleği temizle',
+                clear: 'Temizle',
+                resetDefault: 'Varsayılana geri dön',
+                reset: 'Sıfırla' 
 	},
 	uk: {
 		Mon: 'пн',
