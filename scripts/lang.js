@@ -171,7 +171,16 @@ var lang = {
 		transInterval: 'Interval', 
 		transHint: 'V \'Hlavné\' sekcií je možné pridať viac miest a oddeliť ich bodko-čiarkou', 
 		hint: 'Tip',
-		sec: 'sek.'
+		sec: 'sek.',
+		transDuration: 'Trvanie', 
+		transType: 'Typ', 
+		transFunc: 'Funkcia', 
+		other: 'Ďalšie', 
+		cacheEnabled: 'Cache pre obrázky', 
+		clearCache: 'Vymazať cache', 
+		clear: 'Zmazať', 
+		resetDefault: 'Zresetovať nastavenie', 
+		reset: 'Reset'
 	},
 	fr: {
 		Mon: 'Lun',
