@@ -9,7 +9,8 @@ var
 		tpls: [],
 		pos: 0,
 		interval: null
-	}
+	},
+	wUrl = 'http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=';
 ;
 
 d.addEventListener('DOMContentLoaded', init, false);
@@ -38,7 +39,7 @@ function getWeatherInfo() {
 	try {
 		c.abort();
 		for (i = 0, j = cities.length; i < j; i++) {
-			c.getData('http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=' + window.encodeURIComponent(cities[i]), handleWeatherSuccess, handleError, true);	
+			c.getData(wUrl + window.encodeURIComponent(cities[i]), handleWeatherSuccess, handleError, true);	
 		}
 	} catch(e) {
 		// try is there necessary, because from some reason Opera throws security error when device is not connected
