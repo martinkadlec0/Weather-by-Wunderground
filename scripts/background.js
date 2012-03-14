@@ -33,11 +33,11 @@ function imageErrorHandler() {
 
 /* interval callback */
 function getWeatherInfo() {
-	var cities = (new SemiArray(w.preferences.city)).items;
+	var cities = (new SemiArray(w.preferences.city)).items, i;
 	Transitions.reset();
 	try {
 		c.abort();
-		for (var i = 0, j = cities.length; i < j; i++) {
+		for (i = 0, j = cities.length; i < j; i++) {
 			c.getData('http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=' + window.encodeURIComponent(cities[i]), handleWeatherSuccess, handleError, true);	
 		}
 	} catch(e) {
