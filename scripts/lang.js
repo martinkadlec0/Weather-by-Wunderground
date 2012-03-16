@@ -48,7 +48,11 @@ var lang = {
 		clearCache: 'Clear cache',
 		clear: 'Clear',
 		resetDefault: 'Reset defaults',
-		reset: 'Reset'
+		reset: 'Reset',
+		transTypeNone: 'none',
+		transTypeLeft: 'to left',
+		transTypeRight: 'to right',
+		transTypeOpacity: 'opacity'
 	},
 	cs: {
 		Mon: 'Po',
@@ -97,7 +101,11 @@ var lang = {
 		clearCache: 'Vymazat úložiště',
 		clear: 'Vymazat',
 		resetDefault: 'Výchozí hodnoty',
-		reset: 'Reset'
+		reset: 'Reset',
+		transTypeNone: 'žádný',
+		transTypeLeft: 'do leva',
+		transTypeRight: 'do prava',
+		transTypeOpacity: 'průhlednost'
 	},
 	de: {
 		Mon: 'Mo',
@@ -243,7 +251,7 @@ var lang = {
 		Tue: 'wt.',
 		Wed: 'śr.',
 		Thu: 'czw.',
-		Fri: 'piąt.',
+		Fri: 'pt.',
 		Sat: 'sob.',
 		Sun: 'niedz.',
 		Monday: 'poniedziałek',
@@ -260,7 +268,7 @@ var lang = {
 		offline: 'Nie ma połączenia z siecią, więc nie można odświeżyć danych.',
 		city: 'Miasto',
 		degrees: 'Skala',
-		refresh: 'Odświeżanie co',
+		refresh: 'Odświeżaj co',
 		language: 'Język',
 		redirect: 'Kieruj do',
 		format: 'Zapis daty',
@@ -274,11 +282,24 @@ var lang = {
 		display: 'Wygląd',
 		hideLocation: 'Ukryj nazwę miasta',
 		transitions: 'Przejścia',
-		transInterval: 'Odstęp',
+		transInterval: 'Międzyczas',
 		transHint: 'Możesz wskazać więcej niż jedno miasto (w dziale "Ogólne")<br> rozdzielając nazwy średnikiem.',
 		hint: 'Wskazówka',
 		iconSet: 'Zestaw ikon',
-		sec: 's.'
+		sec: 's',
+		transDuration: 'Trwanie',
+		transType: 'Sposób',
+		transFunc: 'Funkcja',
+		other: 'Inne',
+		cacheEnabled: 'Zapamiętuj obrazki',
+		clearCache: 'Wyczyść pamięć',
+		clear: 'Usuń',
+		resetDefault: 'Domyślne ustawienia',
+		reset: 'Przywróć',
+		transTypeNone: 'żaden',
+		transTypeLeft: 'w lewo',
+		transTypeRight: 'w prawo',
+		transTypeOpacity: 'widoczność'
 	},
 	ru: {
 		Mon: 'пон',
@@ -378,7 +399,29 @@ var lang = {
 		redirect: 'Gửi lại tới',
 		format: 'Định dạng ngày',
 		reload: 'Tải lại ngay',
-		options: 'Tùy chọn'
+		options: 'Tùy chọn',
+		celsius: 'Độ C (°C)',
+		fahrenheit: 'Độ F (⁰F)',
+		background: 'Nền',
+		textColor: 'Màu chữ',
+		main: 'Trang chính',
+		display: 'Hiển thị',
+		hideLocation: 'Không hiển thị vị trí',
+		transitions: 'Chuyển tiếp',
+		transInterval: 'Khoảng cách',
+		transHint: ' Ở phần \'Trang chính\' bạn có thể đưa thêm nhiều thành phố<br>bằng cách điền tên các thành phố đó vào và phân cách <br> chúng bằng dấu chấm phẩy (;)',
+		hint: 'Gợi ý',
+		iconSet: 'Biểu tượng',
+		sec: 'giây',
+		transDuration: 'Thời gian',
+		transType: 'Kiểu',
+		transFunc: 'Chức năng',
+		other: 'Chức năng khác',
+		cacheEnabled: 'Dùng hình ảnh lưu trữ',
+		clearCache: 'Xóa nội dung lưu trữ',
+		clear: 'Xóa',
+		resetDefault: 'Khôi phục các cài đặt mặc định',
+		reset: 'Khôi phục cài đặt'
 	}
 };
 

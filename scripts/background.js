@@ -20,7 +20,7 @@ sd.url = w.preferences.redirect;
 function init() {
 	if ('background' in w.preferences && w.preferences.background) {
 		d.body.style.background = w.preferences.background.split(';')[0]; }
-	if ('textColor' in w.preferences &&w.preferences.textColor) {
+	if ('textColor' in w.preferences && w.preferences.textColor) {
 		d.body.style.color = w.preferences.textColor.split(';')[0]; }
 	setTimeout(getWeatherInfo, 0);
 }
