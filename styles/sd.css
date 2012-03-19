@@ -17,7 +17,6 @@ table {
   margin-top: -22.5%;
 }
 img {
-  padding: 0 5px;
   box-sizing: border-box;
   width: 100%; 
   border-radius: 10px;
@@ -34,8 +33,7 @@ tr:nth-child(1) td {
 	vertical-align: middle;
 }
 tr:nth-child(2) td {
-	/*height: 30px;
-	max-height: 30px;*/
+	padding: 0 5px;
 	vertical-align: middle;
 }
 tr:nth-child(3) td {

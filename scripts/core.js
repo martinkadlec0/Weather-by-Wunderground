@@ -1,5 +1,3 @@
-
-
 // -- Weather parser
 
 var WeatherParser = function(data) {
@@ -158,6 +156,7 @@ WeatherTemplate.prototype.load = function(parser) {
 		asyncLoader = function(a, b, icon) {
 			//async image loading
 			if (iS in Atlases) {
+				//icon = 'chancesnow'; // testing
 				if (icon in Atlases[iS].weather) {
 					icon = Atlases[iS].weather[icon];
 				} else {
