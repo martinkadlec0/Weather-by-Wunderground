@@ -10,7 +10,7 @@ var
 		pos: 0,
 		interval: null
 	},
-	wUrl = 'http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=';
+	wUrl = 'http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query='
 ;
 
 d.addEventListener('DOMContentLoaded', init, false);

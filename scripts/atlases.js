@@ -13,10 +13,12 @@ var Atlases = {
 			rain:			{ x: 336, y: 134, w: 94, h: 65 },
 			thunderstorm:	{ x:  20, y: 237, w: 94, h: 65 },
 			tstorms:		{ x:  20, y: 237, w: 94, h: 65 },
+			chancetstorms:	{ x:  20, y: 237, w: 94, h: 65 },
 			storm:			{ x: 336, y: 134, w: 94, h: 65 },
 			snow:			{ x: 345, y: 234, w: 94, h: 65 },
 			chancesnow:		{ x: 238, y: 237, w: 94, h: 65 },
-			hazy:			{ x: 226, y: 134, w: 94, h: 65 }
+			hazy:			{ x: 226, y: 134, w: 94, h: 65 },
+			fog:			{ x: 226, y: 134, w: 94, h: 65 }
 		}
 	},
 	"Atlas 2": {
@@ -31,12 +33,14 @@ var Atlases = {
 			thunderstorm:	{ x: 250, y: 225, w: 190, h: 190 },
 			storm:			{ x: 750, y:   0, w: 190, h: 190 },
 			tstorms:		{ x: 250, y: 225, w: 190, h: 190 },
+			chancetstorms:	{ x: 250, y: 225, w: 190, h: 190 },
 			rain:			{ x:   0, y: 225, w: 190, h: 190 },
 			mostlysunny:	{ x: 500, y:   0, w: 190, h: 190 },
 			snow:			{ x: 500, y: 225, w: 190, h: 190 },
 			chanceofsnow:	{ x: 500, y: 225, w: 190, h: 190 },
 			partlysunny:	{ x: 500, y:   0, w: 190, h: 190 },
 			hazy:			{ x:   0, y: 450, w: 190, h: 190 },
+			fog:			{ x:   0, y: 450, w: 190, h: 190 },
 			chancesnow:		{ x: 500, y: 225, w: 190, h: 190 }
 		}
 	},
@@ -55,10 +59,12 @@ var Atlases = {
 			rain:			{ x: 510, y:  70, w:  84, h:  72 },
 			thunderstorm:	{ x:  30, y:  20, w: 140, h: 120 },
 			tstorms:		{ x:  30, y:  20, w: 140, h: 120 },
+			chancetstorms:	{ x:  30, y:  20, w: 140, h: 120 },
 			storm:			{ x: 800, y: 143, w: 140, h: 120 },
 			snow:			{ x: 486, y: 143, w: 140, h: 120 },
 			chancesnow:		{ x: 641, y: 143, w: 140, h: 120 },
-			hazy:			{ x:  25, y: 143, w: 140, h: 120 }
+			hazy:			{ x:  25, y: 143, w: 140, h: 120 },
+			fog:			{ x:  25, y: 143, w: 140, h: 120 }
 		}
 	}
 };
