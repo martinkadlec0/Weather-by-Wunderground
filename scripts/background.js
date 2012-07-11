@@ -79,7 +79,7 @@ function handleWeatherSuccess(e) {
 	}
 
 }
-
+parseInt
 /* weather ajax error callback */
 function handleError(e) {
 	if (navigator.onLine) {

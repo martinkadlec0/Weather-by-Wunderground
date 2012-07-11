@@ -140,7 +140,20 @@ var lang = {
 		transHint: 'Im Hauptabschnitt können sie mehrere, durch Semikolons<br>getrennte Orte einfügen.', 
 		hint: 'Tipp',
 		iconSet: 'Symbolsatz',
-		sec: 'sek.'
+		sec: 'sek.',
+		transDuration: 'Dauer',
+		transType: 'Typ',
+		transFunc: 'Funktion',
+		other: 'Andere',
+		cacheEnabled: 'Bildcache verwenden',
+		clearCache: 'Cache leeren',
+		clear: 'Löschen',
+		resetDefault: 'Ausgangszustand wiederherstellen',
+		reset: 'Zurücksetzen',
+		transTypeNone: 'none',
+		transTypeLeft: 'nach links',
+		transTypeRight: 'nach rechts',
+		transTypeOpacity: 'Deckkraft'	
 	},
 	sk: {
 		Mon: 'Po',

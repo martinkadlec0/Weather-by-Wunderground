@@ -22,7 +22,7 @@
 	<preference name="background" value="-o-linear-gradient(top, #bbeedd , white 20%)" />
 	<preference name="textColor" value="black" />
 	<preference name="hideLocation" value="false" />
-	<preference name="iconSet" value="Default" />
+	<preference name="iconSet" value="Atlas 1" />
 
 	<preference name="transInterval" value="5" />
 	<preference name="transDuration" value="500" />
